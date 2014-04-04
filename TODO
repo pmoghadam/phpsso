@@ -1,0 +1,32 @@
+* add time too send str
+* remove admin_login built in var
+* cookie encryption
+* session fixation
+
+if (!isset($_SESSION['CREATED'])) {
+    $_SESSION['CREATED'] = time();
+} else if (time() - $_SESSION['CREATED'] > 1800) {
+    // session started more than 30 minutes ago
+    session_regenerate_id(true);    // change session ID for the current session an invalidate old session ID
+    $_SESSION['CREATED'] = time();  // update creation time
+}
+
+
+
+first, store the last time the user made a request
+
+<?php
+  $_SESSION['timeout'] = time();
+?>
+
+in subsequent request, check how long ago they made their previous request (10 minutes in this example)
+
+<?php
+  if ($_SESSION['timeout'] + 10 * 60 < time()) {
+     // session timed out
+  } else {
+     // session ok
+  }
+?>
+
+
