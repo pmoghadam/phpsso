@@ -1,4 +1,4 @@
-* add time too send str
+* add ip check for client and server
 * remove admin_login built in var
 * cookie encryption
 * session fixation
@@ -12,6 +12,7 @@ if (!isset($_SESSION['CREATED'])) {
 }
 
 
+* add time too send str
 
 first, store the last time the user made a request
 

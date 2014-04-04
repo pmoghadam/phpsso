@@ -3,6 +3,7 @@ session_start();
 include('config.php');
 include('functions.php');
 
+// Logout admin if "unset" value set from sso server
 if (isset($_SESSION['admin_login']) && ($_SESSION['admin_login'] == "unset")) {
 	unset($_SESSION['admin_login']);
 }

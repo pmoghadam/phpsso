@@ -2,6 +2,7 @@
 include ('config.php');
 include('functions.php');
 
+// Logout every client
 if (isset($_COOKIE['SSOID'])) {
 	$arr = unserialize($_COOKIE['SSOID']);
 	setcookie("SSOID", "",1);
@@ -25,6 +26,7 @@ if (isset($_COOKIE['SSOID'])) {
 	}
 }
 
+// Redirect after logout
 if (strlen($_SERVER['QUERY_STRING']) > 0) {
 	$url = urldecode($_SERVER['QUERY_STRING']);
 	header("Location: $url");

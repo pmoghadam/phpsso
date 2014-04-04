@@ -20,8 +20,6 @@ if (isset($_COOKIE["SSOID"])) {
 	$admin_login = "yes";
 }
 
-//session_id($sid);
-
 // Check username and password
 if (	isset($_POST['username']) && $_POST['username'] == $username &&
 	isset($_POST['password']) && $_POST['password'] == $password ){
@@ -29,7 +27,7 @@ if (	isset($_POST['username']) && $_POST['username'] == $username &&
 	$admin_login = "yes";
 }
 
-
+// Actual login
 if (isset($admin_login) && $admin_login == "yes") {
 
 	// Remote session update
